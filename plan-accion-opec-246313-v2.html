@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan de acción v2 · OPEC 246313 · Profesional Universitario 219-02</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E9EDE4;--bar:#DDE4D4;--ink:#1B2A20;--ink-soft:#5C6B5F;--rule:#B4C0AE;
+  --glosa:#9E3324;--stamp:#2E5C4A;--gold:#8A6D2F;
+  --display:'Archivo','Arial Narrow',sans-serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;}
+.sheet{max-width:1080px;margin:0 auto;padding:0 24px 96px;}
+.masthead{border-bottom:3px double var(--ink);padding:40px 0 18px;}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 14px;}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,6.2vw,66px);line-height:.96;letter-spacing:-.025em;margin:0 0 6px;text-transform:uppercase;}
+h1 .thin{font-weight:400;display:block;font-size:.42em;letter-spacing:.02em;margin-top:12px;text-transform:none;color:var(--ink-soft);}
+.idblock{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;margin-top:26px;border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
+.idblock div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 12px;background:rgba(255,255,255,.35);}
+.idblock dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 3px;}
+.idblock dd{margin:0;font-family:var(--display);font-weight:600;font-size:15px;line-height:1.25;}
+.ledger-total{display:flex;flex-wrap:wrap;align-items:flex-end;gap:28px;padding:34px 0 22px;border-bottom:1px solid var(--rule);}
+.bignum{font-family:var(--mono);font-weight:600;font-size:clamp(56px,12vw,100px);line-height:.85;letter-spacing:-.04em;}
+.bignum small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.2em;font-weight:500;color:var(--ink-soft);margin-top:12px;}
+.meter{flex:1;min-width:260px;}
+.meter-bar{display:flex;height:46px;border:1px solid var(--ink);}
+.seg{display:flex;flex-direction:column;justify-content:center;padding:0 10px;font-family:var(--mono);font-size:11px;font-weight:600;border-right:1px solid var(--ink);}
+.seg:last-child{border-right:none;}
+.seg-f{flex:60;background:var(--stamp);color:#EAF0EA;}
+.seg-c{flex:20;background:var(--gold);color:#FFF8E8;}
+.seg-a{flex:20;background:repeating-linear-gradient(45deg,#C3CCBE,#C3CCBE 5px,#B4C0AE 5px,#B4C0AE 10px);color:#3A4A3D;}
+.seg span{opacity:.82;font-weight:500;font-size:9.5px;letter-spacing:.1em;}
+.meter-note{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-top:10px;line-height:1.5;}
+section{padding-top:56px;}
+h2{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(20px,3vw,28px);margin:0 0 4px;display:flex;align-items:baseline;gap:12px;}
+h2::before{content:attr(data-n);font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;color:var(--glosa);border:1px solid var(--glosa);padding:3px 7px;flex:none;}
+.lede{font-size:17px;max-width:68ch;margin:14px 0 26px;color:#2A3A2F;}
+.glosa{border-left:4px solid var(--glosa);background:rgba(158,51,36,.055);padding:14px 18px;margin:16px 0;}
+.glosa h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--glosa);margin:0 0 6px;}
+.glosa p{margin:0;font-size:15px;line-height:1.55;}
+.glosa p + p{margin-top:8px;}
+.bloque{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#EAF0EA;background:var(--ink);padding:8px 12px;margin:0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.bloque span{color:#B4C0AE;letter-spacing:.1em;}
+.ledger{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+.eje{border-bottom:1px solid var(--rule);}
+.eje:nth-of-type(odd) .eje-head{background:var(--bar);}
+.eje-head{display:grid;grid-template-columns:44px 1fr auto 34px;gap:14px;align-items:center;padding:14px 12px;cursor:pointer;user-select:none;transition:background .12s;}
+.eje-head:hover{background:rgba(46,92,74,.12)!important;}
+.eje-num{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ink-soft);}
+.eje-name{font-family:var(--display);font-weight:600;font-size:17px;line-height:1.2;}
+.eje-name em{display:block;font-family:var(--body);font-style:normal;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
+.peso{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border:1px solid;white-space:nowrap;}
+.p-alto{color:var(--glosa);border-color:var(--glosa);}
+.p-medio{color:var(--gold);border-color:var(--gold);}
+.p-base{color:var(--ink-soft);border-color:var(--rule);}
+.chev{font-family:var(--mono);font-size:15px;color:var(--ink-soft);text-align:center;transition:transform .18s;}
+.eje.open .chev{transform:rotate(90deg);}
+.eje-body{display:none;padding:4px 12px 26px 70px;}
+.eje.open .eje-body{display:block;}
+.eje-body h5{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--stamp);margin:18px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--rule);}
+.eje-body ul{margin:0;padding-left:18px;}
+.eje-body li{margin-bottom:6px;font-size:15px;line-height:1.5;}
+.eje-body p{font-size:15px;}
+.norma{font-family:var(--mono);font-size:13px;font-weight:500;}
+.check{font-family:var(--mono);font-size:13px;color:var(--ink-soft);}
+.verificar{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--glosa);border:1px dotted var(--glosa);padding:1px 5px;margin-left:6px;white-space:nowrap;}
+.func-tag{font-family:var(--mono);font-size:10px;color:var(--stamp);background:rgba(46,92,74,.1);padding:2px 6px;margin-left:6px;}
+.item-demo{border:1px solid var(--ink);background:rgba(255,255,255,.5);padding:20px 22px;margin:22px 0;}
+.item-demo .tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--stamp);margin:0 0 12px;}
+.item-demo .caso{font-size:15px;margin:0 0 12px;padding-left:14px;border-left:2px solid var(--rule);}
+.item-demo .preg{font-size:15px;font-weight:600;margin:0 0 10px;}
+.item-demo ol{margin:0;padding-left:22px;font-size:15px;}
+.item-demo li{margin-bottom:5px;}
+.item-demo .clave{font-family:var(--mono);font-size:13px;color:var(--glosa);margin:14px 0 0;padding-top:10px;border-top:1px solid var(--rule);}
+.fases{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));border:1px solid var(--ink);}
+.fase{padding:20px 18px;border-right:1px solid var(--ink);}
+.fase:last-child{border-right:none;}
+.fase-n{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase;}
+.fase h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:17px;margin:8px 0 4px;letter-spacing:-.01em;}
+.fase .plazo{font-family:var(--mono);font-size:11.5px;color:var(--glosa);margin-bottom:12px;}
+.fase ul{margin:0;padding-left:16px;font-size:14px;}
+.fase li{margin-bottom:5px;line-height:1.45;}
+.ciclo{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;}
+.paso{border-top:3px solid var(--stamp);padding-top:12px;}
+.paso .t{font-family:var(--mono);font-size:11px;color:var(--glosa);letter-spacing:.1em;}
+.paso h4{font-family:var(--display);font-weight:600;font-size:15.5px;margin:5px 0 6px;}
+.paso p{margin:0;font-size:14px;line-height:1.5;color:#2A3A2F;}
+.pend{border:1px solid var(--rule);border-left:4px solid var(--gold);padding:16px 18px;margin-bottom:12px;background:rgba(255,255,255,.4);}
+.pend h4{font-family:var(--display);font-weight:600;font-size:16px;margin:0 0 6px;}
+.pend p{margin:0;font-size:14.5px;line-height:1.55;}
+.regla{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.regla .n{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--glosa);}
+.regla h4{font-family:var(--display);font-weight:600;font-size:16px;margin:0 0 5px;}
+.regla p{margin:0;font-size:15px;line-height:1.55;}
+footer{margin-top:70px;padding-top:20px;border-top:3px double var(--ink);font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-height:1.7;}
+@media (max-width:640px){
+  .eje-head{grid-template-columns:32px 1fr 28px;gap:10px;}
+  .peso{grid-column:2;justify-self:start;margin-top:6px;}
+  .eje-body{padding-left:14px;}
+  .fase{border-right:none;border-bottom:1px solid var(--ink);}
+  .fase:last-child{border-bottom:none;}
+}
+@media print{body{background:#fff;}.eje-body{display:block!important;}.chev{display:none;}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <p class="eyebrow">Versión 2 · corregida tras investigar la metodología de las pruebas · Proceso 2778 de 2026 · Acuerdo CNSC No. 56</p>
+  <h1>Plan de acción<span class="thin">Preparación para la prueba escrita — E.S.E. Hospital San Vicente de Paúl de Caldas, Antioquia</span></h1>
+  <dl class="idblock">
+    <div><dt>OPEC</dt><dd>246313</dd></div>
+    <div><dt>Empleo</dt><dd>Profesional Universitario</dd></div>
+    <div><dt>Código / Grado</dt><dd>219 · 02</dd></div>
+    <div><dt>Modalidad</dt><dd>Abierto</dd></div>
+    <div><dt>Área funcional</dt><dd>Subgerencia Administrativa y Financiera</dd></div>
+    <div><dt>Foco</dt><dd>Facturación, cartera y glosas</dd></div>
+    <div><dt>Vacantes</dt><dd>Una (1)</dd></div>
+    <div><dt>Asignación</dt><dd>$5.081.395</dd></div>
+  </dl>
+</header>
+
+<div class="ledger-total">
+  <div class="bignum">65.00<small>PISO ELIMINATORIO</small></div>
+  <div class="meter">
+    <div class="meter-bar">
+      <div class="seg seg-f">60%<span>FUNCIONALES · ELIMINATORIA</span></div>
+      <div class="seg seg-c">20%<span>COMPORTAMENTALES</span></div>
+      <div class="seg seg-a">20%<span>ANTECEDENTES · CERRADO</span></div>
+    </div>
+    <p class="meter-note">Tabla No. 4 del Acuerdo 56. Este proceso aplica únicamente dos pruebas escritas: funcionales y comportamentales. No hay bloque separado de competencias básicas — lo transversal viene dentro de las funcionales, mezclado con lo técnico.</p>
+  </div>
+</div>
+
+<section>
+  <h2 data-n="00">Qué cambió respecto de la versión 1</h2>
+  <p class="lede">La primera versión estaba construida sobre una hipótesis razonable pero desbalanceada: que el examen giraría casi todo alrededor de facturación, glosas y cartera. Investigar cómo se construyen estas pruebas obligó a corregirla.</p>
+
+  <div class="glosa">
+    <h4>Corrección — de proporción, no de contenido</h4>
+    <p>Facturación, glosas y cartera <strong>sí se evalúan</strong>. Pero pasan de ocupar cerca del 60% del esfuerzo a cerca del 30%. El bloque transversal de administración pública —que la versión 1 tenía en un solo eje— sube a cerca del 40% y se abre en cuatro ejes propios.</p>
+    <p>La evidencia que obliga al cambio: la sección V de tu manual de funciones declara cinco conocimientos básicos, y <strong>tres de los cinco son transversales</strong> (planeación institucional, sistemas de gestión integral, administración de personal). Facturación, cartera y glosas caben todas dentro del quinto, "normatividad relacionada con los procedimientos de la dependencia". Esa sección es el insumo que la entidad entrega a la CNSC para construir los ejes temáticos.</p>
+    <p>Confirmación externa: los temarios comerciales armados para esta convocatoria están dominados por Constitución, estructura del Estado, MIPG, MECI, disciplinario, servicio al ciudadano, contratación, finanzas públicas y gestión documental. Conviene leerlos con reserva —son un curso único para 3.044 vacantes de todos los niveles, así que necesariamente reflejan el mínimo común denominador y no lo específico de tu cargo— pero confirman que el bloque transversal es grande y real.</p>
+  </div>
+
+  <div class="glosa">
+    <h4>Lo que se mantiene igual</h4>
+    <p>La valoración de antecedentes sigue cerrada: solo puntúan los documentos que quedaron en SIMO al cierre de inscripciones. La funcional sigue siendo la única barrera eliminatoria. Y los ejes siguen siendo deducidos, no oficiales: la CNSC no ha publicado ni ejes ni fecha de prueba.</p>
+  </div>
+</section>
+
+<section>
+  <h2 data-n="01">Cómo es la pregunta</h2>
+  <p class="lede">Esto importa más que cualquier lista de normas, porque determina <em>cómo</em> estudiar. Las guías de orientación de la CNSC describen el formato con precisión.</p>
+
+  <p>Selección múltiple con única respuesta. Cada ítem se compone de <strong>un caso, un enunciado y tres opciones (A, B, C)</strong>, de las cuales solo una responde adecuadamente a la situación problema. Las pruebas presentan situaciones que reflejan incidentes críticos cercanos a condiciones laborales reales, y de un mismo caso pueden desprenderse varias preguntas.</p>
+
+  <p>La consecuencia es directa: <strong>no se pregunta qué dice una norma, se pregunta qué procede en una situación</strong>. Memorizar el articulado sin saber aplicarlo no sirve; entender el criterio sin conocer los plazos y las causales tampoco. Se necesitan las dos cosas, en ese orden.</p>
+
+  <div class="item-demo">
+    <p class="tag">Reconstrucción del formato — ejemplo ilustrativo, no oficial</p>
+    <p class="caso">Una E.S.E. de segundo nivel radicó facturas por servicios prestados a una entidad responsable de pago. Al recibirlas, la ERP comunica una objeción sobre el 8% del valor total de la remisión, sin identificar facturas ni conceptos individuales, argumentando un promedio histórico de glosa aceptada.</p>
+    <p class="preg">De acuerdo con la normativa vigente, la actuación que procede por parte del profesional a cargo del proceso de glosas es</p>
+    <ol type="A">
+      <li>aceptar la objeción y generar las notas crédito correspondientes al 8% comunicado.</li>
+      <li>rechazar la aplicación de porcentajes globales de glosa y exigir la identificación de causas por factura.</li>
+      <li>negociar con la ERP un porcentaje intermedio que reduzca el impacto sobre la cartera.</li>
+    </ol>
+    <p class="clave">Clave: B. El caso no pregunta por una definición; pregunta por una actuación. La regla aplicable —causales taxativas, prohibición de porcentajes globales— hay que conocerla, pero lo que se evalúa es reconocer que la situación la vulnera. Así se ven todos los ítems.</p>
+  </div>
+
+  <p>Referencia de dimensión: en promedio se evalúan alrededor de <strong>diez ejes temáticos por empleo</strong> en las pruebas de la CNSC. Los doce de abajo están calibrados a esa escala, ordenados de mayor a menor certeza de aparición.</p>
+</section>
+
+<section>
+  <h2 data-n="02">Ejes temáticos, ordenados por certeza</h2>
+  <p class="lede">Estudia de arriba hacia abajo. El bloque A es el que casi con seguridad aparece en cualquier prueba de nivel profesional de la CNSC, independientemente de la entidad. El bloque C es el que te diferencia de los demás aspirantes, pero solo cuenta si ya superaste el bloque A.</p>
+
+  <div class="ledger">
+
+    <p class="bloque">Bloque A · Núcleo del servidor público <span>~40% del esfuerzo · certeza muy alta</span></p>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">01</span>
+        <span class="eje-name">Gestión pública, planeación y sistemas de gestión<em>MIPG · MECI · control interno · riesgos · indicadores</em></span>
+        <span class="peso p-alto">Certeza muy alta</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>Cubre dos de los cinco conocimientos básicos declarados en la sección V del manual: planeación institucional (estratégica y táctica) y sistemas de gestión integral. Es el eje más transversal de todos y aparece en prácticamente cualquier prueba de nivel profesional.<span class="func-tag">Complementarias 2·3·5</span></p>
+        <h5>Normativa base</h5>
+        <ul>
+          <li><span class="norma">Decreto 1499 de 2017</span> — Modelo Integrado de Planeación y Gestión. Dimensiones, políticas de gestión y desempeño, Comité Institucional de Gestión y Desempeño.</li>
+          <li><span class="norma">Ley 87 de 1993</span> — sistema de control interno. MECI y esquema de líneas de defensa.</li>
+          <li>Gestión del riesgo: riesgos de gestión, riesgos de corrupción, SARLAFT. Guía de administración del riesgo del DAFP.</li>
+          <li>Planeación: plan estratégico institucional, plan de acción anual, indicadores de gestión, cadena de valor.</li>
+        </ul>
+        <h5>Por qué te conviene</h5>
+        <ul>
+          <li>El diseño de indicadores y el análisis de datos ya son tu fortaleza declarada. Este eje es donde esa fortaleza rinde puntos directamente.</li>
+          <li>La función complementaria 5 del manual pide participar en la identificación y valoración de riesgos del área y en la evaluación de controles. Estudia MIPG conectándolo con esa función, no en abstracto.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">02</span>
+        <span class="eje-name">Relación Estado–ciudadano<em>Derecho de petición · PQRSD · transparencia · CPACA</em></span>
+        <span class="peso p-alto">Certeza muy alta</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>Aparece en todas las convocatorias de la CNSC sin excepción. Y en tu caso tiene doble utilidad: la función complementaria 9 del manual pide atender usuarios internos y externos y las PQRSFD, y el cobro de cartera se hace por vía de notificaciones administrativas.<span class="func-tag">Complementaria 9</span></p>
+        <h5>Normativa base</h5>
+        <ul>
+          <li><span class="norma">Ley 1755 de 2015</span> — derecho de petición; sustituyó el artículo 22 del CPACA. Términos de respuesta según el tipo de petición: memorízalos.</li>
+          <li><span class="norma">Ley 1437 de 2011 (CPACA)</span> — actos administrativos, notificación personal, por aviso, publicación; recursos; silencio administrativo. Los <span class="norma">artículos 68 y 69</span> son los que aplica el manual de cartera de tu propio hospital.</li>
+          <li><span class="norma">Ley 1712 de 2014</span> — transparencia y acceso a la información pública. Información mínima obligatoria, sujetos obligados, excepciones.</li>
+          <li><span class="norma">Decreto Ley 019 de 2012</span> — antitrámites. Citado en el marco legal del manual de recaudo del hospital.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">03</span>
+        <span class="eje-name">Empleo público y régimen disciplinario<em>Ley 909 · situaciones administrativas · Código General Disciplinario</em></span>
+        <span class="peso p-alto">Certeza muy alta</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>Corresponde al conocimiento básico "administración de personal" de la sección V. Además, tú ya estás estudiando la Ley 909 por otra razón: es la norma que rige el concurso al que te presentaste. Doble rendimiento.</p>
+        <h5>Normativa base</h5>
+        <ul>
+          <li><span class="norma">Ley 909 de 2004</span> y <span class="norma">Decreto 1083 de 2015</span> — clasificación de empleos, niveles jerárquicos, provisión, situaciones administrativas, evaluación del desempeño, retiro del servicio.</li>
+          <li><span class="norma">Decreto Ley 785 de 2005</span> — sistema de nomenclatura del orden territorial. Es el que define qué es experiencia laboral, relacionada, profesional y profesional relacionada.</li>
+          <li>Código General Disciplinario: deberes, prohibiciones, inhabilidades, incompatibilidades, conflicto de intereses, faltas y sanciones. <span class="verificar">verificar articulado vigente</span></li>
+          <li>Integridad y conflicto de intereses en el ejercicio del cargo. La función complementaria 4 del manual habla de "principios de integridad y transparencia".</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">04</span>
+        <span class="eje-name">Estado colombiano y función administrativa<em>Constitución · estructura del Estado · principios</em></span>
+        <span class="peso p-alto">Certeza alta</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>El fondo constitucional sobre el que se apoyan todas las demás respuestas. Suele aparecer poco como pregunta directa y mucho como criterio implícito para descartar opciones.</p>
+        <h5>Normativa base</h5>
+        <ul>
+          <li><span class="norma">Constitución, artículo 209</span> — la función administrativa se desarrolla con fundamento en igualdad, moralidad, eficacia, economía, celeridad, imparcialidad y publicidad. Los siete principios, de memoria.</li>
+          <li><span class="norma">Artículos 125 y 130</span> — carrera administrativa y CNSC. <span class="norma">Artículo 269</span> — control interno obligatorio.</li>
+          <li>Estructura del Estado: ramas, órganos autónomos, sector central y descentralizado, descentralización por servicios (donde encajan las E.S.E.).</li>
+          <li>Mecanismos de protección: tutela, acción de cumplimiento, acción popular.</li>
+        </ul>
+      </div>
+    </article>
+
+    <p class="bloque">Bloque B · Sector salud y tipo de entidad <span>~20% del esfuerzo · certeza alta</span></p>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">05</span>
+        <span class="eje-name">Sistema General de Seguridad Social en Salud<em>Actores · regímenes · flujo de recursos · ADRES</em></span>
+        <span class="peso p-alto">Certeza alta</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>Conocimiento básico declarado en la sección V, con nombre propio. En una convocatoria de Empresas Sociales del Estado es prácticamente seguro que aparezca, y aplica a todos los cargos del proceso.</p>
+        <h5>Normativa base</h5>
+        <ul>
+          <li><span class="norma">Ley 100 de 1993</span> — estructura del sistema, Libro II.</li>
+          <li><span class="norma">Ley 1122 de 2007</span> — ajustes, inspección y vigilancia, flujo de recursos, plazos de pago.</li>
+          <li><span class="norma">Ley 1438 de 2011</span> — atención primaria, capítulo de flujo y protección de recursos.</li>
+          <li><span class="norma">Ley 1751 de 2015</span> — Ley Estatutaria: la salud como derecho fundamental.</li>
+          <li><span class="norma">Decreto 780 de 2016</span> — Decreto Único Reglamentario del Sector Salud.</li>
+        </ul>
+        <h5>Qué hacer</h5>
+        <ul>
+          <li>Dibujar de memoria el mapa de actores y el recorrido del dinero: cotización → ADRES → UPC → EPS → IPS. La cartera que vas a cobrar nace de ahí.</li>
+          <li><strong>Estudia el sistema vigente, no la reforma.</strong> El proyecto 312 de 2024 se archivó al no aprobarse antes del 20 de junio de 2026; el 21 de julio se radicó uno nuevo, apenas iniciando trámite en Cámara. No es ley y no se evalúa como tal.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">06</span>
+        <span class="eje-name">Empresas Sociales del Estado<em>Naturaleza · estructura · presupuesto · contratación · calidad</em></span>
+        <span class="peso p-alto">Certeza alta</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>El tipo de entidad que da nombre a toda la convocatoria. Si hay un eje "de casa" en este proceso, es este.</p>
+        <h5>Normativa base</h5>
+        <ul>
+          <li><span class="norma">Ley 100 de 1993, arts. 194 a 197</span> — E.S.E. como entidad pública descentralizada, con personería jurídica, patrimonio propio y autonomía administrativa.</li>
+          <li><span class="norma">Decreto 1876 de 1994</span> — estructura en tres áreas: Dirección, Atención al Usuario y Logística. Junta directiva, gerente, régimen de personal.</li>
+          <li>Régimen contractual: derecho privado con estatuto propio, sujeto a los principios de la función administrativa. En tu entidad, <span class="norma">Acuerdo 544 de 2023</span>.</li>
+          <li>Régimen presupuestal, CDP y RP. <span class="verificar">verificar norma aplicable</span></li>
+          <li>Categorización del riesgo financiero y programas de saneamiento fiscal y financiero. <span class="verificar">verificar resolución vigente</span></li>
+          <li>Sistema Obligatorio de Garantía de Calidad: habilitación, PAMEC, acreditación, sistema de información. <span class="verificar">verificar resolución de habilitación vigente</span></li>
+          <li>Contabilidad pública: Régimen de Contabilidad Pública, Contaduría General de la Nación, marco normativo para empresas que no cotizan en el mercado de valores.</li>
+        </ul>
+      </div>
+    </article>
+
+    <p class="bloque">Bloque C · Normatividad de la dependencia <span>~30% del esfuerzo · tu diferencial</span></p>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">07</span>
+        <span class="eje-name">Glosas, devoluciones y conciliación<em>Causales taxativas · plazos · respuesta · auditoría de cuentas</em></span>
+        <span class="peso p-medio">Certeza media-alta</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>Es el más denso de los tres del bloque: cuatro de las catorce funciones esenciales son de glosas. Va primero dentro del bloque C.<span class="func-tag">Funciones 5·10·11·12</span></p>
+        <h5>Normativa base</h5>
+        <ul>
+          <li><span class="norma">Ley 1438 de 2011, arts. 56 y 57</span> — trámite de glosas y plazos. Los términos en días hábiles se preguntan.</li>
+          <li><span class="norma">Resolución 2284 de 2023, Anexo Técnico No. 3</span> — Manual Único de Devoluciones, Glosas y Respuestas. Las causales son <strong>taxativas</strong>: no se pueden crear, eliminar ni modificar.</li>
+          <li>Reglas de alto valor para casos: prohibición de porcentajes globales de glosa, prohibición de auditoría previa, e intereses moratorios cuando se formulan glosas infundadas o distintas a las taxativas.</li>
+          <li><span class="norma">Circular 030 de 2013</span> (Supersalud) — conciliaciones. Citada en el manual de recaudo de tu hospital.</li>
+        </ul>
+        <h5>Qué hacer</h5>
+        <ul>
+          <li>Tabla propia de causales: código, familia (facturación, tarifas, soportes, autorización, cobertura, pertinencia, calidad) y responsable interno.</li>
+          <li>Separar con precisión <em>devolución</em> de <em>glosa</em>: la devolución rechaza la factura completa por causas formales, la glosa objeta parcialmente. Ahí se pierden puntos fáciles.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">08</span>
+        <span class="eje-name">Cartera, recaudo y saneamiento<em>Cobro persuasivo, prejurídico y jurídico · deterioro · castigo</em></span>
+        <span class="peso p-medio">Certeza media-alta</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>Tu terreno conocido, y el único eje donde tienes los documentos internos de la entidad en la mano. Estudiarlos es barato en tiempo y alto en retorno.<span class="func-tag">Funciones 6·7·8·9</span></p>
+        <h5>Normativa base</h5>
+        <ul>
+          <li><span class="norma">Ley 1066 de 2006</span> y <span class="norma">Decreto 4473 de 2006</span> — normalización de cartera pública; obligan a adoptar reglamento interno de recaudo.</li>
+          <li><span class="norma">Ley 1564 de 2012</span> — Código General del Proceso: título ejecutivo, proceso ejecutivo, medidas cautelares.</li>
+          <li><span class="norma">Ley 901 de 2004</span> — Boletín de Deudores Morosos del Estado.</li>
+        </ul>
+        <h5>Del manual interno del hospital — memorízalo literal</h5>
+        <ul>
+          <li><span class="check">Etapas:</span> persuasivo (proceso de cartera) → prejurídico (jurídica, máximo 90 días) → jurídico (demanda ejecutiva).</li>
+          <li><span class="check">Antigüedad:</span> 31–60, 61–90, 91–180, 181–360 y más de 360 días. Prioridad a la más cercana a la prescripción.</li>
+          <li><span class="check">Riesgo:</span> bajo (85% bajo 180 días, sin vigilancia especial), medio (85% entre 181 y 360), alto (vigilancia especial o intervención, o mora mayor a 361 días).</li>
+          <li><span class="check">Deterioro:</span> 0–360 no se deteriora; más de 360 dentro de 3 años, 30%; superando 3 años, 60%. Difícil recaudo y pagarés sin soporte, 100%. Cálculo trimestral.</li>
+          <li><span class="check">Título ejecutivo:</span> expreso, claro y exigible. Las tres condiciones.</li>
+          <li><span class="check">Vigencia:</span> la Resolución 497 de 2021 derogó los artículos 17, 18 y 19 de la Resolución 278 de 2019 porque el deterioro pasó al Manual de Políticas Contables.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">09</span>
+        <span class="eje-name">Facturación de servicios de salud<em>Admisión · verificación de derechos · soportes · radicación</em></span>
+        <span class="peso p-medio">Certeza media</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>Baja de posición respecto de la versión 1, no porque importe menos en el cargo, sino porque es el contenido más específico y por tanto el menos probable de aparecer en cantidad. Sigue siendo obligatorio: es el origen de todo lo que después se glosa y se cobra.<span class="func-tag">Funciones 2·3·4</span></p>
+        <h5>Normativa base</h5>
+        <ul>
+          <li><span class="norma">Decreto 4747 de 2007</span> — regula la relación entre prestadores y entidades responsables de pago. Documento madre.</li>
+          <li><span class="norma">Resolución 2284 de 2023</span> — soportes de cobro de la factura de venta en salud. Su transitoriedad se corrió por la <span class="norma">Resolución 627 de 2024</span>: aplica a servicios prestados y facturados desde el 1 de octubre de 2024.</li>
+          <li><span class="norma">Resolución 3047 de 2008</span> y modificatorias (416/2009, 3253/2009, 1231/2012) — rige lo facturado antes de esa fecha.</li>
+          <li>Modalidades de contratación y pago: evento, capitación, pago global prospectivo. Manual tarifario aplicable. <span class="verificar">verificar vigencia</span></li>
+          <li>RIPS como parte integral de la factura; facturación electrónica en salud. <span class="verificar">verificar resolución vigente</span></li>
+        </ul>
+        <h5>Enfoque recomendado</h5>
+        <ul>
+          <li>Prioriza el <strong>flujo</strong> sobre el detalle: admisión → verificación de derechos → prestación → factura → soportes → radicación → auditoría del pagador. Un caso situacional se resuelve ubicando en qué punto del flujo falló algo.</li>
+          <li>Domina la identificación del responsable de pago según el evento (EPS contributiva, subsidiada, SOAT/ECAT, ARL, entidad territorial, régimen especial). Es lo más preguntable del eje.</li>
+        </ul>
+      </div>
+    </article>
+
+    <p class="bloque">Bloque D · Habilidad y contexto <span>~10% del esfuerzo</span></p>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">10</span>
+        <span class="eje-name">Razonamiento, lectura e interpretación de datos<em>La habilidad que atraviesa todos los ítems</em></span>
+        <span class="peso p-alto">Se entrena, no se estudia</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>No es un tema, es una destreza. Y como cada ítem es un caso extenso seguido de un enunciado, la velocidad y precisión de lectura determinan cuántas preguntas alcanzas a responder bien en la jornada.</p>
+        <h5>Cómo entrenarla</h5>
+        <ul>
+          <li>Cronometrar siempre. Un simulacro sin reloj no entrena la habilidad que el examen mide.</li>
+          <li>Practicar el orden inverso: leer primero el enunciado, después el caso. Se lee buscando, no acumulando.</li>
+          <li>Interpretación de tablas y porcentajes: informes de cartera, ejecución presupuestal, indicadores. Aquí tu perfil de análisis de datos juega a favor.</li>
+          <li>Descarte activo: identificar por qué las dos opciones incorrectas lo son. En un formato de tres opciones, descartar una sube la probabilidad de 33% a 50% incluso sin certeza.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="eje">
+      <div class="eje-head">
+        <span class="eje-num">11</span>
+        <span class="eje-name">La entidad y su territorio<em>E.S.E. Hospital San Vicente de Paúl de Caldas</em></span>
+        <span class="peso p-base">Certeza baja · costo bajo</span>
+        <span class="chev">›</span>
+      </div>
+      <div class="eje-body">
+        <p>Pocas preguntas probables, pero es el eje más barato de dominar y el que te da lenguaje propio si necesitas sustentar una reclamación o si el proceso llega a tener alguna fase presencial.</p>
+        <h5>Documentos</h5>
+        <ul>
+          <li><span class="norma">Ordenanza 21 de 1996</span> — transformación en E.S.E. <span class="norma">Ordenanza 31 de 1997</span> — estatuto básico.</li>
+          <li><span class="norma">Acuerdo 577 de 2024</span> — Plan de Desarrollo Institucional 2024–2028. <span class="norma">Acuerdo 565 de 2024</span> — estructura orgánica.</li>
+          <li>Mapa de procesos: estratégicos, misionales (Atención en Salud / Atención y relacionamiento con el usuario), de apoyo (Jurídica, <strong>Financiera</strong>, Recursos y logística) y de evaluación.</li>
+          <li>Informes de gestión 2024 y 2025.</li>
+        </ul>
+        <h5>Datos que vale la pena tener en la cabeza</h5>
+        <ul>
+          <li>Segundo nivel. Sede principal en Caldas y sede Barrios Unidos de primer nivel. Sede de la Regional Ancón Sur desde 1971. Caldas es puerta del suroeste antioqueño.</li>
+          <li>Pagadores y vigilantes principales: Savia Salud, EPS SURA, Dirección Seccional de Salud de Antioquia, Supersalud.</li>
+          <li><strong>El problema que tu cargo existe para resolver:</strong> a diciembre de 2024 la provisión por deterioro de cartera era de $8.604 millones, 32.9% más que los $6.474 millones de 2023.</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <h2 data-n="03">Competencias comportamentales: cómo entrenarlas</h2>
+  <p class="lede">Valen 20%, lo mismo que toda la valoración de antecedentes, con la diferencia de que estas sí se pueden trabajar. Y a diferencia de las funcionales, no se estudian: se entrenan.</p>
+
+  <p>La base normativa es el <span class="norma">Decreto 1083 de 2015, artículos 2.2.4.6 a 2.2.4.8</span>, sustituidos por el <span class="norma">artículo 1 del Decreto 815 de 2018</span>. Allí está, para cada competencia, una definición y una lista de <strong>descriptores conductuales</strong>. Ese es el documento entero: no hay más temario.</p>
+
+  <p>Para tu nivel son diez, tal como las lista la sección VI de tu manual. Seis comunes a todos los servidores: <strong>aprendizaje continuo, orientación a resultados, orientación al usuario y al ciudadano, compromiso con la organización, trabajo en equipo y adaptación al cambio</strong>. Cuatro propias del nivel profesional: <strong>aporte técnico-profesional, comunicación efectiva, gestión de procedimientos e instrumentación de decisiones</strong>.</p>
+
+  <p>El formato es el mismo caso-enunciado-opciones, pero de juicio situacional psicométrico: se plantea una situación laboral cotidiana y se pide elegir la conducta más adecuada. Estas son las reglas que gobiernan la respuesta correcta.</p>
+
+  <div class="regla">
+    <span class="n">01</span>
+    <div>
+      <h4>Responde según el descriptor, no según lo que harías tú</h4>
+      <p>La clave casi siempre reproduce, en otras palabras, un descriptor conductual del Decreto 815. Por eso el trabajo previo es leerlos literalmente, uno por uno, y quedarse con el verbo característico de cada competencia. "Gestión de procedimientos" se reconoce porque la conducta correcta se apoya en el procedimiento establecido; "instrumentación de decisiones" porque traduce una decisión superior en acciones concretas.</p>
+    </div>
+  </div>
+
+  <div class="regla">
+    <span class="n">02</span>
+    <div>
+      <h4>Responde desde el nivel profesional, no desde el asistencial ni el directivo</h4>
+      <p>La misma situación tiene distinta respuesta correcta según el nivel del cargo. Un asistencial reporta y escala; un profesional analiza, propone y ejecuta dentro de su competencia; un directivo decide y asigna. La trampa más común es elegir la opción que suena más proactiva pero que en realidad invade una competencia directiva, o la que suena más prudente pero que en realidad es pasividad de nivel asistencial.</p>
+    </div>
+  </div>
+
+  <div class="regla">
+    <span class="n">03</span>
+    <div>
+      <h4>Ante duda, el orden de prioridad suele ser el mismo</h4>
+      <p>Usuario y ciudadano primero; procedimiento establecido segundo; comunicación al superior o al equipo tercero; iniciativa individual al final. Una opción que resuelve rápido pero salta el procedimiento casi nunca es la clave. Una que consulta antes de actuar cuando el procedimiento ya define qué hacer, tampoco.</p>
+    </div>
+  </div>
+
+  <div class="regla">
+    <span class="n">04</span>
+    <div>
+      <h4>Cuida la consistencia entre respuestas</h4>
+      <p>Son instrumentos psicométricos: los patrones de respuesta contradictorios entre ítems que miden la misma competencia se detectan y castigan el puntaje. No conviene "repartir" respuestas para parecer equilibrado. Conviene sostener un mismo criterio de servidor público a lo largo de toda la prueba.</p>
+    </div>
+  </div>
+
+  <div class="regla">
+    <span class="n">05</span>
+    <div>
+      <h4>Evita el extremo, pero no confundas moderación con tibieza</h4>
+      <p>Las opciones muy radicales —denunciar de inmediato, ignorar el asunto, hacerlo todo por cuenta propia— rara vez son la clave. Pero la opción correcta tampoco es la más suave: es la que <em>actúa</em> dentro del marco. Entre "esperar instrucciones" y "resolver saltándome el conducto", la clave suele ser una tercera que actúa y a la vez informa.</p>
+    </div>
+  </div>
+
+  <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--stamp);margin:26px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--rule);">Plan concreto de entrenamiento</h5>
+  <ul>
+    <li><strong>Semana 1:</strong> leer el Decreto 815 completo y transcribir a mano los descriptores de las diez competencias de tu nivel. A mano, no copiar y pegar: la transcripción fuerza la lectura literal.</li>
+    <li><strong>Semanas 2 a 4:</strong> una competencia por sesión. Escribir dos situaciones propias de tu experiencia en Frigosinú donde esa competencia aplicaría, y decidir cuál habría sido la conducta correcta según el descriptor.</li>
+    <li><strong>Permanente:</strong> diez ítems situacionales al final de cada bloque de estudio funcional. Es descanso mental y entrenamiento a la vez.</li>
+    <li><strong>Fase final:</strong> tandas de cuarenta ítems cronometrados, revisando no solo el acierto sino <em>por qué</em> las otras dos opciones fallaban.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 data-n="04">Cronograma en cuatro fases</h2>
+  <p class="lede">No hay fecha publicada: la CNSC avisa con mínimo cinco días hábiles de antelación y la citación llega después de la VRM. El cronograma va por fases, no por fechas. El disparador de la Fase 3 es la publicación de la citación.</p>
+  <div class="fases">
+    <div class="fase">
+      <p class="fase-n">Fase 01</p>
+      <h3>Núcleo público</h3>
+      <p class="plazo">Semanas 1–6</p>
+      <ul>
+        <li>Bloque A completo: ejes 01 a 04. Es lo de mayor certeza y va primero.</li>
+        <li>En paralelo, semana 1 de comportamentales: transcripción del Decreto 815.</li>
+        <li>Lectura completa del manual de funciones subrayando verbos.</li>
+        <li>Montar el banco de preguntas del bloque A en tu simulador.</li>
+      </ul>
+    </div>
+    <div class="fase">
+      <p class="fase-n">Fase 02</p>
+      <h3>Sector y dependencia</h3>
+      <p class="plazo">Semanas 7–14</p>
+      <ul>
+        <li>Bloque B: SGSSS y E.S.E.</li>
+        <li>Bloque C: glosas, cartera y facturación en ese orden.</li>
+        <li>Tabla propia de causales y plazos; manuales internos memorizados en sus rangos numéricos.</li>
+        <li>Eje 11 completo, que es corto.</li>
+      </ul>
+    </div>
+    <div class="fase">
+      <p class="fase-n">Fase 03</p>
+      <h3>Recalibración</h3>
+      <p class="plazo">Al publicarse la guía</p>
+      <ul>
+        <li>Contrastar los ejes oficiales contra estos doce y reasignar pesos.</li>
+        <li>Comportamentales a fondo: tandas cronometradas.</li>
+        <li>Simulacros completos en condiciones reales de jornada.</li>
+        <li>Registro de errores convertido en repaso dirigido.</li>
+      </ul>
+    </div>
+    <div class="fase">
+      <p class="fase-n">Fase 04</p>
+      <h3>Afinación</h3>
+      <p class="plazo">Últimas 2 semanas</p>
+      <ul>
+        <li>Solo repaso activo y simulacros. Nada de material nuevo.</li>
+        <li>Errores recurrentes del registro.</li>
+        <li>Logística: ciudad de presentación, documento, hora de citación, restricciones de ingreso al sitio.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-n="05">Ciclo diario</h2>
+  <p class="lede">El mismo esquema de cinco pasos que ya usas, ajustado a que el examen mide aplicación y no memoria. Alterna temas: no dediques un día entero a un solo eje.</p>
+  <div class="ciclo">
+    <div class="paso"><p class="t">15 min</p><h4>Repaso espaciado</h4><p>Tarjetas del día. Prioridad a rangos numéricos: plazos, días de antigüedad, porcentajes, términos de respuesta.</p></div>
+    <div class="paso"><p class="t">45 min</p><h4>Lectura activa</h4><p>Una norma o capítulo, con notas propias. Prohibido subrayar sin escribir después qué dice el texto en tus palabras.</p></div>
+    <div class="paso"><p class="t">20 min</p><h4>Recuperación</h4><p>Cerrar el material y reconstruir de memoria. Si no sale, no estaba aprendido.</p></div>
+    <div class="paso"><p class="t">30 min</p><h4>Simulacro</h4><p>Casos, nunca definiciones. Formato caso + enunciado + tres opciones. Siempre cronometrado.</p></div>
+    <div class="paso"><p class="t">10 min</p><h4>Registro de errores</h4><p>Cada fallo se vuelve tarjeta. Anota también por qué fallaron las otras dos opciones.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2 data-n="06">Pendientes que no son de estudio</h2>
+  <p class="lede">Cuatro asuntos administrativos que pueden costar el concurso independientemente de lo bien que estudies.</p>
+
+  <div class="pend">
+    <h4>Experiencia relacionada, no profesional relacionada</h4>
+    <p>La sección VII del manual exige "nueve (9) meses de experiencia relacionada" — no dice "profesional relacionada". Según el Decreto 785 de 2005 la experiencia relacionada se define por <em>similitud de funciones</em> con el cargo a proveer, no por nivel jerárquico. Y el Acuerdo 56 establece que si hay diferencia entre la OPEC de SIMO y el manual, prevalece el manual. Es tu mejor argumento si te inadmiten. Tenlo redactado antes de que salgan los resultados de VRM, con las funciones 6 a 9 del manual puestas frente a las tuyas en Frigosinú.</p>
+  </div>
+
+  <div class="pend">
+    <h4>Consistencia del certificado de Laborando</h4>
+    <p>Si el certificado dice "Auxiliar de Archivo" y tú refieres el rol como "Auxiliar de Cartera", en VRM se toma literal. El Anexo advierte que las certificaciones que no cumplan las condiciones no serán válidas ni podrán subsanarse después del cierre. Prepara el soporte y el argumento desde ya.</p>
+  </div>
+
+  <div class="pend">
+    <h4>ReTHUS</h4>
+    <p>El artículo 14 del Acuerdo 56 exige estado "Activo" en el ReTHUS durante la VRM para los empleos "que correspondan al área de la salud". Tu cargo es administrativo-financiero y tu NBC no es de talento humano en salud, así que en principio no aplica. Confírmalo: es causal de inadmisión.</p>
+  </div>
+
+  <div class="pend">
+    <h4>Monitoreo y plazos de reclamación</h4>
+    <p>Los avisos salen por SIMO y por el sitio de la CNSC con cinco días hábiles de antelación. Los plazos son cortos y perentorios: dos días hábiles contra los resultados de VRM, cinco días hábiles contra los de las pruebas escritas. Revisa SIMO con rutina fija.</p>
+  </div>
+</section>
+
+<footer>
+  Fuentes primarias: Acuerdo CNSC No. 56 del 9 de abril de 2026 · Anexo Técnico E.S.E. 2 – Orden Territorial · Manual Específico de Funciones y Competencias Laborales, Profesional Universitario 219-02 · Manual Interno de Recaudo de Cartera (Resolución 278 de 2019, modificada por la Resolución 497 de 2021) · Mapa de procesos institucional · Guías de Orientación al Aspirante publicadas por la CNSC en procesos anteriores.<br><br>
+  Las etiquetas <span class="verificar">verificar vigencia</span> señalan puntos donde falta confirmar la norma aplicable antes de memorizarla. No los des por ciertos.<br><br>
+  El ítem de ejemplo de la sección 01 es una reconstrucción propia del formato, no una pregunta oficial. Las pruebas de la CNSC tienen carácter reservado.<br><br>
+  Los doce ejes son una deducción a partir del manual de funciones y de la metodología conocida de estas pruebas, no una publicación oficial de la CNSC. Recalibrar cuando salga la Guía de Orientación al Aspirante y los ejes temáticos del proceso.
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll('.eje-head').forEach(function(h){
+  h.setAttribute('tabindex','0');
+  h.setAttribute('role','button');
+  var toggle=function(){h.parentElement.classList.toggle('open');};
+  h.addEventListener('click',toggle);
+  h.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
+  });
+});
+</script>
+</body>
+</html>
